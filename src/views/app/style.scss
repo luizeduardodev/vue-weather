@@ -1,0 +1,211 @@
+@use "@/assets/scss/_reset.scss";
+@use "@/assets/scss/_variables.scss";
+@use "@/assets/scss/_mixins.scss";
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+    min-height: 100vh;
+    padding: 1rem;
+
+    text-align: center;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.75)
+    );
+
+    .search-box {
+        width: 100%;
+        max-width: 98rem;
+        margin: 0 auto;
+
+        margin-bottom: 3rem;
+
+        .search-bar {
+            display: block;
+
+            width: 100%;
+            margin: 0 auto;
+
+            padding: 1.2rem 1.5rem;
+            font-size: 1.8rem;
+
+            border: none;
+            outline: none;
+            background: none;
+            border-radius: 0.5rem;
+            box-shadow: 0px 0px 1.6rem rgba(0, 0, 0, 0.25);
+            transition: 0.4s;
+            color: variables.$color;
+            background-color: variables.$bg-color-input;
+
+            &:focus {
+                box-shadow: 0px 0px 1.6rem rgba(0, 0, 0, 0.25);
+                background-color: variables.$color-input-focus;
+            }
+
+            @include mixins.md(768px) {
+                width: 90%;
+            }
+        }
+    }
+
+    .weather-wrap {
+        width: 100%;
+
+        .location-box {
+            width: 100%;
+            min-height: calc(100vh - 95px);
+
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            .location {
+                p {
+                    @include mixins.paragraphSetting(2.8rem);
+                    margin-bottom: 2rem;
+
+                    @include mixins.md(1024px) {
+                        font-size: 4rem;
+                    }
+                }
+            }
+
+            .dateAndcurrently {
+                width: 100%;
+
+                p {
+                    font-size: 2rem;
+
+                    font-weight: 500;
+                    font-style: italic;
+                    color: variables.$color-text;
+
+                    @include mixins.md(1024px) {
+                        font-size: 2.5rem;
+                    }
+                }
+            }
+
+            .weather-box {
+                width: 100%;
+
+                .temp {
+                    width: 100%;
+                    margin-block: 2rem;
+
+                    p {
+                        display: inline-block;
+                        padding: 0.5rem 2.5rem;
+
+                        font-size: 7rem;
+                        border-radius: 0.7rem;
+
+                        font-weight: 900;
+                        text-shadow: 0.3rem 0.6rem rgba(0, 0, 0, 0.25);
+                        box-shadow: 0.3rem 0.6rem rgba(0, 0, 0, 0.25);
+                        background-color: #ffffff40;
+                        color: variables.$color-text;
+
+                        @include mixins.md(1024px) {
+                            font-size: 8rem;
+                        }
+                    }
+                }
+
+                .weather {
+                    width: 100%;
+
+                    p {
+                        font-size: 2.5rem;
+                        margin-bottom: 2rem;
+
+                        font-weight: 700;
+                        font-style: italic;
+                        text-shadow: 0.3rem 0.6rem rgba(0, 0, 0, 0.25);
+                        color: variables.$color-text;
+
+                        @include mixins.md(1024px) {
+                            font-size: 3rem;
+                        }
+                    }
+                }
+
+                .wind_speedy {
+                    width: 100%;
+
+                    margin-bottom: 2rem;
+
+                    p {
+                        @include mixins.paragraphSetting(1.8rem);
+                        max-width: 200px;
+                        margin: 0 auto;
+
+                        @include mixins.md(1024px) {
+                            font-size: 2rem;
+                            max-width: 50rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .button-container {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .buttonStyle {
+            display: none;
+            width: 50%;
+            padding: 0.8rem;
+            border-radius: 0.4rem;
+            font-size: 1.5rem;
+
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+
+            background-color: variables.$bg-color-input;
+            color: variables.$color;
+            transition: 0.5s;
+
+            &:hover {
+                width: 60%;
+                padding: 1rem;
+
+                color: variables.$color;
+                background-color: variables.$color-input-focus;
+            }
+
+            &.show-btn {
+                display: inline-block;
+            }
+
+            @include mixins.md(768px) {
+                width: 30%;
+
+                &:hover {
+                    width: 35%;
+                }
+            }
+
+            @include mixins.md(1024px) {
+                width: 10%;
+
+                &:hover {
+                    width: 15%;
+                }
+            }
+        }
+    }
+}
